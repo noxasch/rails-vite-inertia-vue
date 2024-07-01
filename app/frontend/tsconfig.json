@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "ESNext", "DOM.Iterable", "ES2020"],
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "module": "ESNext",
+    "jsxImportSource": "vue",
+    "paths": {
+      "~/*": ["./*"],
+    },
+  },
+  "ts-node": {
+    "swc": true
+  },
+  "include": ["./**/*.ts", "./**/*.vue"],
+  
+}

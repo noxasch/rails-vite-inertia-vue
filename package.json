@@ -1,0 +1,28 @@
+{
+  "name": "rails-inertia-vue",
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0 <22.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.2",
+    "vite-plugin-full-reload": "^1.1.0",
+    "vite-plugin-ruby": "^5.0.0"
+  },
+  "dependencies": {
+    "@inertiajs/vue3": "^1.2.0",
+    "@vue/server-renderer": "^3.4.31",
+    "vue": "^3.4.31"
+  }
+}

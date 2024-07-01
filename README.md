@@ -71,7 +71,7 @@ export default defineConfig({
 ```
 
 
-```json
+```jsonc
 {
   "development": {
     "autoBuild": true,
@@ -85,7 +85,7 @@ export default defineConfig({
 ### set tsconfig
 
 
-```json
+```jsonc
 // app/tscofig.json
 {
   "compilerOptions": {

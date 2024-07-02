@@ -171,9 +171,9 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!--<%= stylesheet_link_tag "application" %> -->
+    <!--stylesheet_link_tag "application" -->
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'inertia' %>
+    <%= vite_typescript_tag 'inertia' %>
 
     <%= inertia_headers %>
     <!-- vite_javascript_tag 'application' -->
@@ -197,6 +197,14 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 </html>
 
 ```
+
+## Deployment (SPA)
+
+```
+RAILS_ENV=production SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RAILS_ENV=production bundle exec rails s
+```
+
 
 ## Reference
 - [InertialJS Rails](https://inertia-rails.netlify.app)

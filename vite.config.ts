@@ -13,4 +13,11 @@ export default defineConfig({
     ], { delay: 200}),
     vue(),
   ],
+   /**
+   * Define aliases for importing modules from
+   * your frontend code
+   */
+   resolve: {
+    alias: {},
+  },
 })

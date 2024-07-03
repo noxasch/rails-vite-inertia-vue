@@ -199,7 +199,7 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 ```
 
 ## Development (SPA)
-- in developmennt mode, we need to run both rails and vite server
+- in development mode, we need to run both rails and vite server
 
 ```
 bundle exec rails s

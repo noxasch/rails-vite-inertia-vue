@@ -23,6 +23,7 @@
   "dependencies": {
     "@inertiajs/vue3": "^1.2.0",
     "@vue/server-renderer": "^3.4.31",
+    "flowbite": "^2.4.1",
     "vue": "^3.4.31"
   }
 }

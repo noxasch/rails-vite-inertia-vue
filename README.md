@@ -214,6 +214,18 @@ RAILS_ENV=production SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 RAILS_ENV=production bundle exec rails s
 ```
 
+## SSR
+
+- mostly will have issue when have window or document reference in SSR
+
+### Deployment (SSR)
+- deployment server must have nodejs and run the ssr server
+
+```sh
+bundle exec vite build --ssr
+
+bundle exec vite ssr
+```
 
 ## Reference
 - [InertialJS Rails](https://inertia-rails.netlify.app)

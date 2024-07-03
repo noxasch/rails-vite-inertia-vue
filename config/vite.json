@@ -3,6 +3,9 @@
     "sourceCodeDir": "app/frontend",
     "watchAdditionalPaths": []
   },
+  "production": {
+    "ssrBuildEnabled": true
+  },
   "development": {
     "autoBuild": true,
     "host": "127.0.0.1",

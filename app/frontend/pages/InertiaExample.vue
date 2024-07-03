@@ -28,7 +28,7 @@
       </p>
     </div>
     <p class="readTheDocs text-yellow-500 text-3xl font-bold underline">
-      Click on the Inertia, Vite Ruby, and Vue logos to learn more!!!
+      Click on the Inertia, Vite Ruby, and Vue logos to learn more!
     </p>
   </div>
 </template>
@@ -111,7 +111,7 @@ const count = ref(0)
   padding: 2em;
 }
 
-/* .readTheDocs {
+.readTheDocs {
   color: #888;
-} */
+}
 </style>

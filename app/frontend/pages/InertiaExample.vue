@@ -1,7 +1,7 @@
 <template>
   <Head title="Inertia + Vite Ruby + Vue Example" />
 
-  <div class="root">
+  <div class="root dark:text-white">
     <h1 class="h1">Hello {{ name }}!</h1>
 
     <div>
@@ -19,7 +19,7 @@
     <h2 class="h2">Inertia + Vite Ruby + Vue</h2>
 
     <div class="card">
-      <button class="button" type="button" @click="count++">
+      <button class="button dark:text-slate-600" type="button" @click="count++">
         count is {{ count }}
       </button>
       <p>
@@ -54,7 +54,7 @@ const count = ref(0)
   line-height: 1.5;
   font-weight: 400;
   color: #213547;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;

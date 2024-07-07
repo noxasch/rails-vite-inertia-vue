@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # devise_for :users, skip: %i[sessions registrations passwords]
+  devise_for :users, skip: %i[registrations passwords], controllers: { sessions: 'users/sessions'}
+  
   get 'inertia-example', to: 'inertia_example#index'
   # resources :categories
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resource :users, only: %i[] do
+  root 'inertia_example#index'
+  resource :users, only: %i[show] do
     get :signup, to: 'users#new'
     post :signup, to: 'users#create'
   end

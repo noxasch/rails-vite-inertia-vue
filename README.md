@@ -209,9 +209,12 @@ bundle exec dev
 
 ## Deployment (SPA)
 
-```
+```sh
 RAILS_ENV=production SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 RAILS_ENV=production bundle exec rails s
+
+# or use foreman - but cannot use rails debugger
+foreman start -f Procfile.dev
 ```
 
 ## SSR
@@ -227,6 +230,13 @@ bundle exec vite build --ssr
 bundle exec vite ssr
 ```
 
+## TODO
+- [x] CSRF handling - handle by default in inertia
+- [x] routing - only some issue during sign in
+- [x] session auth - devise - no issue with inertia
+- [x] flash - via shared data
+- [ ] user permission with cancancan
+ 
 ## Reference
 - [InertialJS Rails](https://inertia-rails.netlify.app)
 - [Vite Ruby](https://vite-ruby.netlify.app/)

@@ -18,6 +18,8 @@ export default defineConfig({
    * your frontend code
    */
    resolve: {
-    alias: {},
+    alias: {
+      '~/': 'app/frontend/'
+    },
   },
 })

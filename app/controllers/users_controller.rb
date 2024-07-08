@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
       render inertia: 'users/sign_up', props: { 
         user: user.as_json
-      }
+      }, status: :unprocessable_entity
     end
   end
 

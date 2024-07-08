@@ -8,7 +8,8 @@
 - Vite Rails (gem)
 
 ```sh
-rails new <PROJECT_NAME> --minimal
+rails new <PROJECT_NAME> --minimal -T
+rails new <PROJECT_NAME> --minimal --skip-test
 bundle add vite_rails inertia_rails inertia_rails-contrib
 bundle exec vite install
 bundle exec rails g inertia:install # this will create necessary file

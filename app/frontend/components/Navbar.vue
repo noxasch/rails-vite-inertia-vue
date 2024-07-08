@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { onMounted, computed, watch } from 'vue'
+  import { onMounted, computed, watch, nextTick } from 'vue'
   import { usePage, Link } from '@inertiajs/vue3'
   import { initDropdowns } from 'flowbite'
 
@@ -13,7 +13,8 @@
     }
   })
 
-  watch(user, (newUser, _) => {
+  watch(user, async (newUser, _) => {
+    await nextTick()
     if (newUser) {
       initDropdowns()
     }
@@ -31,7 +32,7 @@
           </div>
             
           <div>
-            <Link class="block py-2 px-4 text-sm dark:hover:text-white font-bold hover:cursor-pointer" :href="(publicUrl as any).sign_in_path"  as="a">Sign In</Link>
+            <Link v-if="!user" class="block py-2 px-4 text-sm dark:hover:text-white font-bold hover:cursor-pointer" :href="(publicUrl as any).sign_in_path"  as="a">Sign In</Link>
           </div>
 
           <button v-if="user" type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
@@ -44,17 +45,8 @@
                   <span class="block text-sm font-semibold text-gray-900 dark:text-white">User</span>
                   <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ (user as any).email }}</span>
               </div>
-              <!-- <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
-                  <li>
-                      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My profile</a>
-                  </li>
-                  <li>
-                      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Account settings</a>
-                  </li>
-              </ul> -->
               <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
                   <li>
-                      <!-- <a :href="(publicUrl as any).sign_out_path" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a> -->
                       <Link class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" :href="(publicUrl as any).sign_out_path" method="delete" as="span">Logout</Link>
                   </li>
               </ul>

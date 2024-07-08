@@ -230,12 +230,32 @@ bundle exec vite build --ssr
 bundle exec vite ssr
 ```
 
+## Project Structure
+This is a monotlith monorepo project that utilized both ruby and javascript.
+
+- InertiaJs exist on both side of the app which act as a glue between Rails and Vue.
+- With InertiaJs means you don't need hotwire and send inertia json instead of HTML.
+
+### Backend
+- As any rails app, everything on backend is in the repo except for `app/frontend`.
+- There is only 1 erb file in `app/views` folder which act as the entry point for inertia app.
+- data can be shared using with the front end using the `inertia_share` function and `props` with `render inertia`.
+- As any web app, the backend should handle the authentication and authorization.
+
+### Front End
+- use inertia `Link` component for navigation
+- inertia handle CSRF token and session by default, hence there should no issue
+- when using `fetch` make sure to use `same-origin` to make sure there are no CSRF mismatch or use `axios`
+- for built in routing support, can utilize library such as [js-routes](https://github.com/railsware/js-routes), using shared data or even raw url.
+
+
 ## TODO
 - [x] CSRF handling - handle by default in inertia
 - [x] routing - only some issue during sign in
 - [x] session auth - devise - no issue with inertia
 - [x] flash - via shared data
 - [ ] user permission with cancancan
+- [ ] Inertia error handling
  
 ## Reference
 - [InertialJS Rails](https://inertia-rails.netlify.app)

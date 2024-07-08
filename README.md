@@ -255,6 +255,7 @@ This is a monotlith monorepo project that utilized both ruby and javascript.
 - [x] routing - only some issue during sign in
 - [x] session auth - devise - no issue with inertia
 - [x] flash - via shared data
+- [x] test with rspec
 - [ ] user permission with cancancan
 - [ ] Inertia error handling
  
@@ -263,3 +264,4 @@ This is a monotlith monorepo project that utilized both ruby and javascript.
 - [Vite Ruby](https://vite-ruby.netlify.app/)
 - [Vite Ruby](https://vite-ruby.netlify.app/)
 - [InertiaJs](https://inertiajs.com/)
+- [Inertia Rails](https://github.com/inertiajs/inertia-rails)

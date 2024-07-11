@@ -202,10 +202,13 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 ## Development (SPA)
 - in development mode, we need to run both rails and vite server
 
-```
+```sh
 bundle exec rails s
 
-bundle exec dev
+bundle exec vite dev
+
+# or use foreman - but cannot use rails debugger
+foreman start -f Procfile.dev
 ```
 
 ## Deployment (SPA)
@@ -213,14 +216,11 @@ bundle exec dev
 ```sh
 RAILS_ENV=production SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 RAILS_ENV=production bundle exec rails s
-
-# or use foreman - but cannot use rails debugger
-foreman start -f Procfile.dev
 ```
 
 ## SSR
 
-- mostly will have issue when have window or document reference in SSR
+- currently will have issue when have window or document reference in SSR
 
 ### Deployment (SSR)
 - deployment server must have nodejs and run the ssr server

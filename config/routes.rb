@@ -17,4 +17,8 @@ Rails.application.routes.draw do
     get :signup, to: 'users#new'
     post :signup, to: 'users#create'
   end
+
+  namespace :users do
+    resources :posts, only: %i[new create show index destroy]
+  end
 end

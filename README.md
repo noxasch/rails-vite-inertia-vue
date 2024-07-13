@@ -248,7 +248,19 @@ This is a monotlith monorepo project that utilized both ruby and javascript.
 - when using `fetch` make sure to use `same-origin` to make sure there are no CSRF mismatch or use `axios`
 - for built in routing support, can utilize library such as [js-routes](https://github.com/railsware/js-routes), using shared data or even raw url.
 
+### MailHog
+Testing email locally in development
 
+- require: golang
+
+```sh
+go install github.com/mailhog/MailHog@latest
+
+go/bin/MailHog
+
+# the UI should be available at:
+# http://localhost:8025/
+```
 ## TODO
 - [x] CSRF handling - handle by default in inertia
 - [x] routing - only some issue during sign in

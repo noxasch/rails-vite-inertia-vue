@@ -12,9 +12,10 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_07_13_024554) do
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "title", default: "", null: false
     t.text "body", default: "", null: false
+    t.boolean "public", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"

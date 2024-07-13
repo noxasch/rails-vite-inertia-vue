@@ -121,7 +121,6 @@ export default defineConfig({
     "swc": true
   },
   "include": ["./**/*.ts", "./**/*.vue"],
-  
 }
 
 ```

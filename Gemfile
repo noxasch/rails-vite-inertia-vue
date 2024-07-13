@@ -28,13 +28,13 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem "annotate", "~> 3.2"
+  gem "solargraph", "~> 0.50.0", require: false
+  gem "solargraph-rails", "~> 1.1", require: false
 end
 
 
 gem "vite_rails", "~> 3.0"
-
 gem "inertia_rails", "~> 3.2"
-
 gem "inertia_rails-contrib", "~> 0.1.1"
 
 gem "devise", "~> 4.9"

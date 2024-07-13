@@ -2,27 +2,31 @@ class Users::PostsController < Users::BaseController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    render inertia: 'posts/index', props: { posts: posts }
+    render inertia: 'posts/index', props: { posts: resources }
   end
 
   def show
-    render inertia: 'posts/show', props: { post: post }
+    render inertia: 'posts/show', props: { post: resource }
   end
 
   def new
-    render inertia: 'posts/create', props: { post: post }
+    render inertia: 'posts/create', props: { post: resource }
   end
 
   def edit
-    render inertia: 'posts/create', props: { post: post }
+    render inertia: 'posts/create', props: { post: resource }
+  end
+
+  def update
+    redirect_to users_posts_path(resource.id)
   end
 
   def create
-    if post.save
-      redirect_to users_posts_path(post.id)
+    if resource.save
+      redirect_to users_posts_path(resource.id)
     end
 
-    render inertia: 'posts/create', props: { errors: post.errors }
+    render inertia: 'posts/create', props: { errors: resource.errors }
   end
 
   def destroy
@@ -31,21 +35,24 @@ class Users::PostsController < Users::BaseController
 
   private
 
-  def post
+  def resource_class
+    Post
+  end
+
+  def resource
     if action_name == 'new'
-      @post = Post.new
+      @resource = resource_class.new
     # elsif action_name == 'create'
     #   @post = current_user.posts.new(**create_params[:post])
     # else
     #   @post = current_user.posts.find(params[:id])
     else
-      @post = Post.find(params[:id])
-      authorize!(:read, @post)
+      @resource = resource_class.find(params[:id])
     end
   end
 
-  def posts
-    @posts ||= Post.accessible_by(current_ability)
+  def resources
+    @resources ||= Post.accessible_by(current_ability)
   end
 
   def create_params

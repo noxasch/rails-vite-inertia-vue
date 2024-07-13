@@ -1,14 +1,11 @@
 <script setup lang="ts">
-  import type { Post } from '~/types'
   import { computed } from 'vue'
   import { Link, usePage } from '@inertiajs/vue3'
 
   const page = usePage()
   const usersUrl = computed(() => page.props.users_url)
   
-  defineProps({
-    posts: { type: Array<Post> }, 
-  })
+  defineProps<{ posts: any[] }>()
 </script>
 
 <template>

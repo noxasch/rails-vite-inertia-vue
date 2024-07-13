@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-    resources :posts, only: %i[new create show index destroy]
+    resources :posts, only: %i[new create show index edit update destroy]
   end
 end

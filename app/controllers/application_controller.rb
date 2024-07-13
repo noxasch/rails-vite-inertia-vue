@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
         sign_in_path: new_user_session_path,
         users_path: user_session_path,
         sign_out_path: destroy_user_session_path
+      },
+      users_url: { 
+        users_posts_path: users_posts_path
       }
     }
   end
@@ -19,9 +22,6 @@ class ApplicationController < ActionController::Base
         auth: { 
           user: current_user.as_json(only: %i[email])
         },
-        users_url: { 
-          users_posts_path: users_posts_path
-        }
       }
     else
       {}

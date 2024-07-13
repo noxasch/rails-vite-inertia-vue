@@ -30,6 +30,7 @@ group :development do
   gem "annotate", "~> 3.2"
   gem "solargraph", "~> 0.50.0", require: false
   gem "solargraph-rails", "~> 1.1", require: false
+  gem "js_from_routes", "~> 3.0"
 end
 
 
@@ -39,5 +40,3 @@ gem "inertia_rails-contrib", "~> 0.1.1"
 
 gem "devise", "~> 4.9"
 gem "cancancan", "~> 3.6"
-
-gem "js_from_routes", "~> 3.0"

@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { useForm, usePage, Link } from '@inertiajs/vue3'
-import { computed } from 'vue'
+import { useForm, Link } from '@inertiajs/vue3'
 import FlashAlert from '~/components/FlashAlert.vue'
+import api from '~/api'
 
 defineProps<{ user: any }>()
-
-const page = usePage()
-const publicUrl = computed(() => page.props.public_url)
 
 const form = useForm({
   user: {
@@ -28,7 +25,7 @@ const form = useForm({
         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
           Create an account
         </h1>
-        <form class="space-y-4 md:space-y-6" @submit.prevent="form.post((publicUrl as any).sign_up_path)">
+        <form class="space-y-4 md:space-y-6" @submit.prevent="form.post(api.users.new.path())">
           <div>
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
             <input v-model="form.user.email" type="email" name="email" id="email"
@@ -63,7 +60,7 @@ const form = useForm({
           <p class="text-sm font-light text-gray-500 dark:text-gray-400">
             Already have an account?
             <Link class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-              :href="(publicUrl as any).sign_in_path">Login here</Link>
+              :href="api.usersSessions.new.path()">Login here</Link>
           </p>
         </form>
       </div>

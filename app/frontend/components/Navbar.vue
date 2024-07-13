@@ -2,10 +2,10 @@
   import { onMounted, computed, watch, nextTick } from 'vue'
   import { usePage, Link } from '@inertiajs/vue3'
   import { initDropdowns } from 'flowbite'
+  import { usersSessions } from '~/api'
 
   const page = usePage()
   const user = computed(() => page.props.auth)
-  const publicUrl = computed(() => page.props.public_url)
 
   onMounted(() => {
     if (user) {
@@ -32,7 +32,7 @@
           </div>
             
           <div>
-            <Link v-if="!user" class="block py-2 px-4 text-sm dark:hover:text-white font-bold hover:cursor-pointer" :href="(publicUrl as any).sign_in_path"  as="a">Sign In</Link>
+            <Link v-if="!user" class="block py-2 px-4 text-sm dark:hover:text-white font-bold hover:cursor-pointer" :href="usersSessions.new.path()"  as="a">Sign In</Link>
           </div>
 
           <button v-if="user" type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
@@ -47,7 +47,8 @@
               </div>
               <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
                   <li>
-                      <Link class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" :href="(publicUrl as any).sign_out_path" method="delete" as="span">Logout</Link>
+                      <Link class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" 
+                      :href="usersSessions.destroy.path()" method="delete" as="span">Logout</Link>
                   </li>
               </ul>
           </div>

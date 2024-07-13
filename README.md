@@ -261,6 +261,15 @@ go/bin/MailHog
 # the UI should be available at:
 # http://localhost:8025/
 ```
+
+## JS routes
+
+```sh
+rails js_from_routes:generate
+# if generate fail add `require 'ostruct'` in application.rb
+```
+
+
 ## TODO
 - [x] CSRF handling - handle by default in inertia
 - [x] routing - only some issue during sign in

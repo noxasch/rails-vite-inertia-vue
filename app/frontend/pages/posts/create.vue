@@ -1,10 +1,7 @@
 <script setup lang="ts">
-  import { computed, reactive } from 'vue'
-  import { router, usePage } from '@inertiajs/vue3'
-
-
-  const page = usePage()
-  const usersUrl = computed(() => page.props.users_url)
+  import { reactive } from 'vue'
+  import { router } from '@inertiajs/vue3'
+  import api from '~/api'
 
   const props = defineProps({ post: Object, errors: Object })
 
@@ -29,7 +26,7 @@
         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
           Create Post
         </h1>
-        <form class="space-y-4 md:space-y-6" @submit.prevent="submit((usersUrl as any).users_posts_path)">
+        <form class="space-y-4 md:space-y-6" @submit.prevent="submit(api.usersPosts.create.path())">
           <div>
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Post Title</label>
             <input v-model="postForm.post.title" type="text" name="title" id="title"

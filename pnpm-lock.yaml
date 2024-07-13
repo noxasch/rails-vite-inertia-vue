@@ -11,6 +11,9 @@ importers:
       '@inertiajs/vue3':
         specifier: ^1.2.0
         version: 1.2.0(vue@3.4.31(typescript@5.5.2))
+      '@js-from-routes/client':
+        specifier: ^1.0.4
+        version: 1.0.4
       '@vue/server-renderer':
         specifier: ^3.4.31
         version: 3.4.31(vue@3.4.31(typescript@5.5.2))
@@ -236,6 +239,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@js-from-routes/client@1.0.4':
+    resolution: {integrity: sha512-XZks4jIEdVYfcaau1AxIXcSw8j196+JsWeX6h1ip+v7Hn2pYJ8wHr+wLG1hq8S4cSiIN6rS+n/pzTbw2J6y08g==}
+
+  '@js-from-routes/core@1.0.2':
+    resolution: {integrity: sha512-7VEYGz4VfkgFb7MDtGEIaGYvn/9oleBaRqtSREFuV9hPooeyrI+ghsP8U4WJlCHFndtTbatUTzXRljt1zJH4Gw==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1155,6 +1164,12 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  '@js-from-routes/client@1.0.4':
+    dependencies:
+      '@js-from-routes/core': 1.0.2
+
+  '@js-from-routes/core@1.0.2': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

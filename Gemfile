@@ -39,3 +39,5 @@ gem "inertia_rails-contrib", "~> 0.1.1"
 
 gem "devise", "~> 4.9"
 gem "cancancan", "~> 3.6"
+
+gem "js_from_routes", "~> 3.0"

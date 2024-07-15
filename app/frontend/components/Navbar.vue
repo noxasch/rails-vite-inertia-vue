@@ -2,7 +2,7 @@
   import { onMounted, computed, watch, nextTick } from 'vue'
   import { usePage, Link } from '@inertiajs/vue3'
   import { initDropdowns } from 'flowbite'
-  import { usersSessions } from '~/api'
+  import { usersSessions, usersPosts } from '~/api'
 
   const page = usePage()
   const user = computed(() => page.props.auth)
@@ -46,6 +46,14 @@
                   <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ (user as any).email }}</span>
               </div>
               <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+                  <li>
+                      <a class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" 
+                      :href="usersPosts.new.path()" as="span">New Posts</a>
+                  </li>
+                  <li>
+                      <a class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" 
+                      :href="usersPosts.index.path()" as="span">Posts</a>
+                  </li>
                   <li>
                       <Link class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" 
                       :href="usersSessions.destroy.path()" method="delete" as="span">Logout</Link>

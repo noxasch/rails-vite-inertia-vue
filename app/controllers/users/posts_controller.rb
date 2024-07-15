@@ -23,7 +23,7 @@ class Users::PostsController < Users::BaseController
 
   def create
     if resource.save
-      redirect_to users_posts_path(resource.id)
+      return redirect_to users_posts_path(resource.id)
     end
 
     render inertia: 'posts/create', props: { errors: resource.errors }
@@ -40,8 +40,8 @@ class Users::PostsController < Users::BaseController
   end
 
   def resource
-    if action_name == 'new'
-      @resource = resource_class.new
+    if ['new', 'create'].include?(action_name)
+      @resource = resource_class.new(**(create_params[:post] || {}), user: current_user)
     # elsif action_name == 'create'
     #   @post = current_user.posts.new(**create_params[:post])
     # else

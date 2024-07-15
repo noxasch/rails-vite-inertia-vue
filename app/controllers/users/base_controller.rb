@@ -5,7 +5,7 @@ class Users::BaseController < ApplicationController
   private
 
   def authorize_action!
-    if ['index', 'new'].include?(action_name)
+    if ['index', 'new', 'create'].include?(action_name)
       authorize!(action_name.to_sym, resource_class)
     else
       authorize!(action_name.to_sym, resource)
